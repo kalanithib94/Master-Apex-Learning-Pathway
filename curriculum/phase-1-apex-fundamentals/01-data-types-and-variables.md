@@ -287,3 +287,9 @@ Data types and variables come up in interviews in these ways:
 - Don't use magic numbers — create named constants
 - Don't concatenate strings in loops — use `String.join()` with a List
 - Don't cast without checking type first — wrap in try-catch or check with `instanceof`
+
+---
+
+## Deep Dives
+
+_This section grows as questions come up during the lesson. Each entry is a doubt that was raised, explained, and preserved for future learners._

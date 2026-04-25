@@ -66,6 +66,10 @@ The learner has past experience with Apex — understands the basics and what th
 - Lesson 01 tasks not yet attempted — next session should begin hands-on coding
 - Remaining 54 lesson files to be created as the learner progresses through each phase
 
+## Doubts Raised
+
+_No lesson doubts in this session — project setup only. Doubt tracking begins with Lesson 01._
+
 ## Contradictions / Changes
 
 _None yet. This is the first session._

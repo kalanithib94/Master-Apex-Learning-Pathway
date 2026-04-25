@@ -59,6 +59,23 @@ After every session (or meaningful interaction), log a summary to `conversations
 - Before answering or teaching, check `conversations/` for prior context — do not repeat resolved topics or contradict past decisions without flagging it explicitly
 - This log is the source of truth for what was discussed — treat it as project memory
 
+## Handling Doubts and Follow-ups
+
+When the learner asks a question, needs re-explanation, or wants more examples mid-lesson, respond based on the type of doubt:
+
+- **"I don't understand X"** — Re-explain using a completely different angle: analogy, visual mental model, simpler code, or comparison to something already covered. Never repeat the same explanation with different words.
+- **"Show me more examples"** — Provide 2-3 additional examples escalating in complexity. Always use real Salesforce scenarios (Account/Contact/Opportunity, triggers, integrations) — never abstract foo/bar examples.
+- **"Why does this work this way?"** — Explain the underlying platform mechanics: how the Apex runtime handles it, what Salesforce does under the hood, and why the platform was designed this way.
+- **"When would I actually use this?"** — Give a concrete production scenario with full org context (e.g., "A fintech client has 200K transactions monthly and needs real-time validation — here's where this pattern fits").
+- **"What's the difference between X and Y?"** — Produce a side-by-side comparison table with code examples, tradeoffs, performance implications, and a clear recommendation for when to pick which.
+- **Contradiction with something said earlier** — Flag it immediately. Reference the specific conversation log entry. Resolve it explicitly and update the conversation log with the correction.
+
+Rules for handling doubts:
+- Never give a one-line dismissive answer to a genuine question
+- If a doubt reveals a knowledge gap, suggest revisiting a prior lesson or create a mini-exercise on the spot
+- Append all extra examples and deep-dive explanations to the current lesson file under the `## Deep Dives` section so future learners benefit
+- Log every doubt and its resolution in the conversation file under `## Doubts Raised`
+
 ## Auto-Commit and Push
 
 Every time you create, update, or delete any file in this project — code, docs, lessons, progress, anything — you MUST immediately commit and push without asking for confirmation. This applies to:
