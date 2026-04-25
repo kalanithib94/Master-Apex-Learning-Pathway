@@ -19,11 +19,19 @@ Learner is reading through Lesson 01 theory before starting the coding tasks. Qu
 - **Resolution:** Explained with real-world examples (API response parsing, custom metadata, user input scenarios)
 - **Added to lesson:** Yes, appended to 01-data-types-and-variables.md Deep Dives
 
+### Doubt 2: "The real-world examples (JSON, Custom Metadata) are too advanced — I can't understand them"
+- **Context:** Follow-up to Doubt 1 — the initial explanation used concepts from later lessons (JSON.deserializeUntyped, Custom Metadata, type casting) which the learner hasn't covered yet
+- **Explanation given:** Simplified to the core concept — same number exists as text (`'99.99'`) vs actual number (`99.99`). You can't do math with text. `valueOf()` converts text to a number. The advanced scenarios (APIs, metadata) were deferred to later lessons where they'll make natural sense.
+- **Resolution:** Learner's feedback guided a rewrite of the Deep Dives entry to use simpler, level-appropriate examples
+- **Added to lesson:** Yes, replaced the previous Deep Dives entry with a simpler version
+- **Tutor learning:** Don't use concepts from future lessons when explaining current ones. Meet the learner where they are.
+
 ## Key Concepts Discussed
 
 - Factory methods (`valueOf()`) vs direct assignment
 - When String-to-type conversion matters in real development
 - Error scenarios with invalid input (TypeException, NullPointerException)
+- Importance of level-appropriate explanations — don't jump ahead
 
 ## Contradictions / Changes
 

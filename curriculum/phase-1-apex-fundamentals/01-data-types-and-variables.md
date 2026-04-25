@@ -296,15 +296,24 @@ _This section grows as questions come up during the lesson. Each entry is a doub
 
 ### Why use Decimal.valueOf('99.99') instead of just 99.99?
 
-`Decimal.valueOf(String)` is a factory method that parses a String into a Decimal. While direct assignment (`Decimal price = 99.99;`) works for hardcoded values, `valueOf()` is essential when values arrive as Strings from external sources — API responses, custom metadata, user input, or JSON payloads.
+The same number can exist in two forms in Apex — as an actual number or as text:
 
 ```apex
-// Direct assignment — fine for constants
-Decimal price = 99.99;
-
-// valueOf — necessary when the source is a String
-String apiAmount = '1500.75';
-Decimal amount = Decimal.valueOf(apiAmount);
+Decimal price = 99.99;         // A number — you can do math with it
+String priceText = '99.99';    // Text — looks like a number but Apex treats it as letters
 ```
 
-This pattern exists across all Apex types: `Integer.valueOf()`, `Boolean.valueOf()`, `Date.valueOf()`, `Long.valueOf()`. Always wrap in `try/catch` in production since invalid Strings throw `System.TypeException` and null throws `NullPointerException`.
+You cannot do math with a String. Trying `priceText * 0.10` gives a compile error. `Decimal.valueOf()` converts text into a real number:
+
+```apex
+String priceText = '99.99';
+Decimal price = Decimal.valueOf(priceText);  // Text -> number
+Decimal tax = price * 0.10;                  // Now math works — 9.999
+```
+
+**When does this matter?** Right now in Lesson 01 it seems pointless — why not just write `99.99` directly? Because in later lessons (DML, integrations, API callouts), you'll see that data coming from outside your code almost always arrives as text. For now, the simple rule:
+
+- `99.99` (no quotes) — already a number, use directly
+- `'99.99'` (in quotes) — it's text, use `Decimal.valueOf()` to make it a number
+
+This pattern exists across all Apex types: `Integer.valueOf()`, `Boolean.valueOf()`, `Date.valueOf()`, `Long.valueOf()`. If the String is invalid (e.g., `'hello'`), it throws an error — you'll learn how to handle that in Lesson 09 (Exception Handling).
