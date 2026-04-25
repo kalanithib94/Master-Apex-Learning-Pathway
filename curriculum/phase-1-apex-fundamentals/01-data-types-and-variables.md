@@ -34,7 +34,7 @@ Double pi = 3.14159;
 
 // Decimal — precise decimal numbers (use for currency/financial calculations)
 Decimal totalAmount = 1500.75;
-Decimal price = Decimal.valueOf('99.99');
+Decimal price = 99.99;
 
 // String — text values
 String accountName = 'Acme Corporation';
