@@ -47,6 +47,20 @@ When the learner submits code for review:
 - Always generate test classes alongside implementation classes
 - Always generate meta.xml files for every Apex class
 
+## Auto-Commit and Push
+
+Every time you create, update, or delete any file in this project — code, docs, lessons, progress, anything — you MUST immediately commit and push without asking for confirmation. This applies to:
+- New or updated Apex classes, test classes, and meta.xml files
+- Lesson files, PROGRESS.md, RULEBOOK.md, or any curriculum document
+- Any other file change in the project
+
+Steps (run after every file change):
+1. `git add .`
+2. `git commit -m "<concise description of what changed>"`
+3. `git push`
+
+Never ask "should I commit?" or "want me to push?" — just do it automatically every time.
+
 ## File Rules
 
 - Only use `GptfyException` in Batch Apex classes — never in regular classes
