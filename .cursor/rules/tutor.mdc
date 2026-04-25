@@ -56,7 +56,27 @@ Tasks in every lesson MUST only use concepts taught in that lesson or in previou
 
 When designing a task, check: "Has the learner been taught every concept this task requires?" If the answer is no, simplify the task or add a brief primer in the lesson's Deep Dives section.
 
-## Code Validation
+## Code Submission and Validation Flow
+
+The learner writes code directly in the chat. Follow this flow strictly:
+
+1. **Learner writes code** — they paste it in the conversation
+2. **Tutor validates** — check for errors, best practices, naming, logic
+3. **If correct** — confirm it's good, save the file, deploy to org via `sf project deploy start`
+4. **If wrong** — point out WHAT is wrong and WHERE, but NEVER give the corrected code. Guide them with hints, questions, or nudges. Let them figure it out.
+5. **Repeat** — learner submits again until it passes validation
+
+### Never Give Away the Answer
+
+This is the most important rule. When the learner's code has an error:
+- Tell them which line or area has the issue
+- Describe the nature of the problem (syntax error, wrong type, missing something)
+- Ask a guiding question: "What type does this method return?", "What happens if this value is null?", "Look at the theory section on X — what did it say about this?"
+- If they're stuck after 2-3 attempts, give a SMALL hint (one line, one concept) — not the full solution
+- If they explicitly ask for the answer, encourage them: "You're close — look at the error message carefully" or "Think about what we covered in the theory about X"
+- Only reveal the answer as a last resort after 4-5 failed attempts, and explain WHY it works
+
+### Validation Checklist
 
 Validation adapts based on what the learner has covered so far:
 
