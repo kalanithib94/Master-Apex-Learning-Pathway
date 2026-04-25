@@ -47,6 +47,22 @@ Learner is reading through Lesson 01 theory before starting the coding tasks. Qu
 - Importance of level-appropriate explanations — don't jump ahead
 - Task design principle: never require concepts from future lessons
 
+## Task Completion
+
+### Beginner Task: Variable Playground — COMPLETED
+- **Attempts:** 3 rounds of corrections
+- **Issues caught and fixed by learner:**
+  - Boolean value casing (`TRUE` -> `true`)
+  - Class name casing (`date.today()` -> `Date.today()`, `time` -> `Time`, `datetime` -> `Datetime`, `decimal` -> `Decimal`)
+  - `Time.now()` doesn't exist — learned to use `Time.newInstance(h,m,s,ms)`
+  - Salesforce Id must be 15 or 18 characters
+  - Variable names can't be reused in same script
+  - Can't add number to Date with `+` — must use `.addDays()`
+  - `int` is not an Apex type — it's `Integer`
+  - Variable names can't start with a number
+  - `public static` not used in Anonymous Apex for `final`
+- **File saved:** `scripts/apex/lesson01-beginner.apex`
+
 ## Contradictions / Changes
 
 ### Change 1: Tasks rewritten from classes to Anonymous Apex scripts
