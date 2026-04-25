@@ -293,3 +293,18 @@ Data types and variables come up in interviews in these ways:
 ## Deep Dives
 
 _This section grows as questions come up during the lesson. Each entry is a doubt that was raised, explained, and preserved for future learners._
+
+### Why use Decimal.valueOf('99.99') instead of just 99.99?
+
+`Decimal.valueOf(String)` is a factory method that parses a String into a Decimal. While direct assignment (`Decimal price = 99.99;`) works for hardcoded values, `valueOf()` is essential when values arrive as Strings from external sources — API responses, custom metadata, user input, or JSON payloads.
+
+```apex
+// Direct assignment — fine for constants
+Decimal price = 99.99;
+
+// valueOf — necessary when the source is a String
+String apiAmount = '1500.75';
+Decimal amount = Decimal.valueOf(apiAmount);
+```
+
+This pattern exists across all Apex types: `Integer.valueOf()`, `Boolean.valueOf()`, `Date.valueOf()`, `Long.valueOf()`. Always wrap in `try/catch` in production since invalid Strings throw `System.TypeException` and null throws `NullPointerException`.
