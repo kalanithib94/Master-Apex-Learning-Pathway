@@ -26,12 +26,20 @@ Learner is reading through Lesson 01 theory before starting the coding tasks. Qu
 - **Added to lesson:** Yes, replaced the previous Deep Dives entry with a simpler version
 - **Tutor learning:** Don't use concepts from future lessons when explaining current ones. Meet the learner where they are.
 
+### Doubt 3: "I don't know what a Map is — how can I do the Beginner task?"
+- **Context:** Beginner task requires returning `Map<String, String>` but Maps are taught in Lesson 02
+- **Explanation given:** Minimal Map intro — it's a container of key-value pairs like a dictionary. Showed `put()`, `get()`, `size()`. Explained `Map<String, String>` means both key and value are Strings. Gave enough to complete the task without the full Lesson 02 deep dive.
+- **Resolution:** Learner given just enough to proceed. Full Map coverage deferred to Lesson 02.
+- **Added to lesson:** Yes, added "What is a Map?" quick intro to Deep Dives section
+- **Tutor learning:** Lesson 01 tasks depend on Lesson 02 concepts (Map). Future lessons should either avoid forward dependencies or include a minimal primer within the task hints.
+
 ## Key Concepts Discussed
 
 - Factory methods (`valueOf()`) vs direct assignment
 - When String-to-type conversion matters in real development
 - Error scenarios with invalid input (TypeException, NullPointerException)
 - Importance of level-appropriate explanations — don't jump ahead
+- Maps at a basic level (put, get, size) — just enough for the task
 
 ## Contradictions / Changes
 

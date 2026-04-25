@@ -317,3 +317,24 @@ Decimal tax = price * 0.10;                  // Now math works — 9.999
 - `'99.99'` (in quotes) — it's text, use `Decimal.valueOf()` to make it a number
 
 This pattern exists across all Apex types: `Integer.valueOf()`, `Boolean.valueOf()`, `Date.valueOf()`, `Long.valueOf()`. If the String is invalid (e.g., `'hello'`), it throws an error — you'll learn how to handle that in Lesson 09 (Exception Handling).
+
+### What is a Map? (Quick intro for Lesson 01 tasks)
+
+A Map is a container that stores pairs — a label (called **key**) and a value. Think of it like a dictionary: you look up a word (key), you get its definition (value).
+
+```apex
+// Create an empty Map — types in <> define what the key and value types are
+Map<String, String> myMap = new Map<String, String>();
+
+// Put pairs in
+myMap.put('Integer', '150');
+myMap.put('Boolean', 'true');
+
+// Get a value by its key
+String result = myMap.get('Integer');  // Returns '150'
+
+// Check how many pairs exist
+Integer size = myMap.size();  // Returns 2
+```
+
+`Map<String, String>` means both the key and value are Strings. `Map<String, Object>` means the key is a String but the value can be any type. Maps are covered in full depth in Lesson 02 — this is just enough to complete the Beginner task.
