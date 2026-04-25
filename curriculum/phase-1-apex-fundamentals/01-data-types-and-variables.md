@@ -325,6 +325,29 @@ Data types and variables come up in interviews in these ways:
 
 ---
 
+## External Resources
+
+Learn more from these curated resources:
+
+**Salesforce Official:**
+- [Apex Developer Guide — Data Types](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/langCon_apex_primitives.htm) — Official docs on every primitive type
+- [Apex Developer Guide — Variables](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/langCon_apex_variables.htm) — Declaration, scope, and constants
+- [Apex Developer Guide — String Class](https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_methods_system_string.htm) — Every String method available
+
+**Trailhead:**
+- [Apex Basics & Database](https://trailhead.salesforce.com/content/learn/modules/apex_database) — Salesforce's own beginner Apex module
+
+**YouTube:**
+- [Apex Hours — Apex Data Types](https://www.youtube.com/results?search_query=apex+hours+data+types+salesforce) — Beginner-friendly walkthrough
+- [SalesforceHulk — Apex Variables & Data Types](https://www.youtube.com/results?search_query=salesforcehulk+apex+variables+data+types) — Quick visual explanations
+
+**Articles:**
+- [SFDC Stop — Apex Primitive Data Types](https://www.sfdcstop.com/2019/12/primitive-data-types-in-apex.html) — Clean summary with examples
+
+> Tip: Read the official docs first — they are the source of truth. YouTube and articles help when you want a different explanation angle.
+
+---
+
 ## Best Practices
 
 **Do:**
