@@ -33,14 +33,23 @@ Learner is reading through Lesson 01 theory before starting the coding tasks. Qu
 - **Added to lesson:** Yes, added "What is a Map?" quick intro to Deep Dives section
 - **Tutor learning:** Lesson 01 tasks depend on Lesson 02 concepts (Map). Future lessons should either avoid forward dependencies or include a minimal primer within the task hints.
 
+### Doubt 4: "I don't need classes, methods, or Maps in the first task — I haven't learned those yet"
+- **Context:** Beginner task asked to create an Apex class with methods returning Maps. Classes are Lesson 05, Methods are Lesson 04, Maps are Lesson 02.
+- **Explanation given:** The learner is right. Tasks should only test what the current lesson teaches.
+- **Resolution:** All three tasks completely rewritten as Anonymous Apex scripts (saved in `scripts/apex/`). No classes, no methods, no collections. Beginner = declare and use variables. Intermediate = string method exercises. Advanced = type casting, precision testing, null behavior. Map Deep Dive entry removed from the lesson since it's no longer needed.
+- **Tutor learning:** Every task must be scoped strictly to concepts taught up to and including the current lesson. Never require forward knowledge. For early lessons (before Lesson 04-05), use Anonymous Apex scripts instead of classes.
+
 ## Key Concepts Discussed
 
 - Factory methods (`valueOf()`) vs direct assignment
 - When String-to-type conversion matters in real development
 - Error scenarios with invalid input (TypeException, NullPointerException)
 - Importance of level-appropriate explanations — don't jump ahead
-- Maps at a basic level (put, get, size) — just enough for the task
+- Task design principle: never require concepts from future lessons
 
 ## Contradictions / Changes
 
-_None._
+### Change 1: Tasks rewritten from classes to Anonymous Apex scripts
+- **What changed:** All three Lesson 01 tasks were originally class-based (DataTypeExplorer, StringUtils, ConfigParser). Rewritten as Anonymous Apex scripts in `scripts/apex/`.
+- **Why:** Classes (Lesson 05), methods (Lesson 04), and Maps (Lesson 02) are future topics. Tasks should only test current lesson content.
+- **Impact:** Validation criteria updated to match script format. Map Deep Dive removed from lesson.

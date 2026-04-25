@@ -176,86 +176,140 @@ String objectType = record.getSObjectType().getDescribe().getName(); // 'Account
 
 ## Task: Beginner
 
-**Title:** Data Type Explorer
+**Title:** Variable Playground
 
-Create an Apex class called `DataTypeExplorer` that demonstrates your understanding of each primitive data type.
+Write an Anonymous Apex script that declares variables of every primitive type, performs a basic operation with each, and prints the results.
+
+**File:** Save as `scripts/apex/lesson01-beginner.apex`
 
 **Requirements:**
-1. Create a method `demonstratePrimitives()` that returns a `Map<String, String>` where each key is the data type name and each value is a string representation of a sample value of that type
-2. Include at least these types: Integer, Decimal, Double, String, Boolean, Date, Datetime, Id
-3. Create a method `convertStringToTypes(String input)` that takes a numeric string (like `'42'`) and returns a `Map<String, Object>` containing the string converted to Integer, Decimal, Double, and Long
-4. Create a corresponding test class `DataTypeExplorerTest` with assertions for both methods
+1. Declare one variable of each type: Integer, Long, Double, Decimal, String, Boolean, Date, Datetime, Time, Id
+2. Perform one meaningful operation with each variable:
+   - Integer: add two integers and store the result
+   - Decimal: calculate 15% tax on a price of 1200.50
+   - Double: multiply two doubles and observe the result
+   - String: create a full name by combining a first name and last name with a space between them
+   - Boolean: check if a number is greater than 100 and store the result
+   - Date: get today's date and add 30 days to it
+   - Datetime: get the current datetime and print it
+   - Id: declare a sample Account Id
+3. Use `System.debug()` to print each result with a label, like: `System.debug('Tax amount: ' + taxAmount);`
+4. Declare one constant using `final` and use it in a calculation
+
+**How to run it:**
+```bash
+sf apex run --file scripts/apex/lesson01-beginner.apex --target-org learning-org
+```
 
 **Hints:**
-- Use `String.valueOf()` to convert any type to String
-- Use `Integer.valueOf()`, `Decimal.valueOf()` for the reverse
-- Test with both valid input and think about what happens with null
+- To combine strings, use the `+` operator: `'Hello' + ' ' + 'World'`
+- To add days to a date: `Date.today().addDays(30)`
+- For the constant, use `final Decimal TAX_RATE = 0.15;`
 
 ---
 
 ## Task: Intermediate
 
-**Title:** String Utility Toolkit
+**Title:** String Detective
 
-Create an Apex class called `StringUtils` that provides reusable string manipulation methods that you would actually use in a real project.
+Write an Anonymous Apex script that explores String methods by solving small text-processing challenges.
+
+**File:** Save as `scripts/apex/lesson01-intermediate.apex`
 
 **Requirements:**
-1. `sanitizeInput(String input)` — trims whitespace, returns null if blank
-2. `formatPhoneNumber(String phone)` — takes a 10-digit string and returns it formatted as `(XXX) XXX-XXXX`. Returns null if input is not exactly 10 digits
-3. `maskEmail(String email)` — takes an email like `john.doe@example.com` and returns `j*****e@example.com` (first char, asterisks, last char before @, then the domain unchanged). Returns null if input is not a valid email format (must contain @)
-4. `generateInitials(String fullName)` — takes a full name like `'John Michael Doe'` and returns `'JMD'`. Handle single names, extra spaces, and null
-5. Create `StringUtilsTest` with tests covering valid inputs, null inputs, empty strings, and edge cases for each method
+1. Start with this string: `String rawInput = '  John Michael Doe  ';`
+   - Trim the whitespace
+   - Convert to uppercase
+   - Convert to lowercase
+   - Find the length of the trimmed string
+   - Check if it contains 'Michael'
+   - Extract just the first name using `substring()` (hint: first name ends at the first space)
+   - Print each result with `System.debug()`
+
+2. Start with this string: `String email = 'John.Doe@Example.COM';`
+   - Convert to lowercase
+   - Check if it contains '@'
+   - Extract the part before '@' (the username)
+   - Extract the part after '@' (the domain)
+   - Print each result
+
+3. Null safety exercise:
+   - Declare `String emptyStr = '';` and `String nullStr = null;`
+   - Test both with `String.isBlank()` and `String.isEmpty()` — print the results
+   - What happens if you try `nullStr.length()`? Write a comment explaining what would happen (don't actually run it — it would crash)
+   - Write a safe version: check if `nullStr != null` before calling `.length()`, print 'null string detected' if it is null
+
+4. String comparison:
+   - Declare `String a = 'Salesforce';` and `String b = 'salesforce';`
+   - Compare using `==` and `.equals()` — print both results
+   - Compare using `.equalsIgnoreCase()` — print the result
+   - Write a comment explaining which method you should use and why
 
 **Hints:**
-- Use `String.isBlank()` for null/empty checks
-- Use `.split()` to break strings apart
-- Use `.substring()` and `.charAt()` for character-level operations
-- Think about what `isNumeric()` or `isAlpha()` could help with for phone validation
+- `indexOf(' ')` gives the position of the first space
+- `substring(0, 4)` gives characters from position 0 to 3
+- `substringBefore('@')` and `substringAfter('@')` are handy for splitting at a character
 
 ---
 
 ## Task: Advanced
 
-**Title:** Type-Safe Configuration Parser
+**Title:** Type Casting Lab
 
-Create an Apex class called `ConfigParser` that simulates parsing a configuration string (like you would receive from an API or custom setting) into strongly-typed values.
+Write an Anonymous Apex script that explores type conversions, precision differences, and null behavior.
+
+**File:** Save as `scripts/apex/lesson01-advanced.apex`
 
 **Requirements:**
-1. The class accepts a configuration string in the format: `key1=value1;key2=value2;key3=value3`
-2. `ConfigParser(String configString)` — constructor that parses and stores the config internally
-3. `getString(String key)` — returns the string value for a key, null if not found
-4. `getInteger(String key)` — returns the value parsed as Integer, null if not found or not a valid integer
-5. `getDecimal(String key)` — returns the value parsed as Decimal, null if not found or not a valid decimal
-6. `getBoolean(String key)` — returns the value parsed as Boolean (accepts `'true'`, `'false'`, `'yes'`, `'no'`, `'1'`, `'0'`), null if not found or not a valid boolean
-7. `getDate(String key)` — returns the value parsed as Date (format: `YYYY-MM-DD`), null if not found or not a valid date
-8. `getKeys()` — returns a `Set<String>` of all keys
-9. `hasKey(String key)` — returns Boolean
-10. Handle edge cases: null config string, empty config string, keys with no values, duplicate keys (last wins), extra whitespace around keys and values
-11. Create `ConfigParserTest` with thorough tests covering happy path, edge cases, null/empty inputs, invalid type conversions, and duplicate keys
+1. **Safe conversions (widening):**
+   - Assign an Integer `42` to a Decimal variable — does it work? Print the result.
+   - Assign an Integer to a Long — does it work? Print the result.
+   - Write a comment explaining why these work without any special syntax.
+
+2. **Dangerous conversions (narrowing):**
+   - Cast a Decimal `99.7` to an Integer using `(Integer)` — what happens to the `.7`? Print the result.
+   - Cast a Decimal `99.3` to an Integer — print and compare with above.
+   - Write a comment: does Apex round or truncate?
+
+3. **String-to-number conversions:**
+   - Convert the string `'150'` to Integer using `Integer.valueOf()` — print it.
+   - Convert the string `'99.99'` to Decimal using `Decimal.valueOf()` — print it.
+   - Convert the Integer `42` to a String using `String.valueOf()` — print it.
+   - Convert today's date to a String using `String.valueOf()` — print it.
+
+4. **Precision test — Double vs Decimal:**
+   - Calculate `0.1 + 0.2` using Double variables — print the result. Is it exactly `0.3`?
+   - Calculate `0.1 + 0.2` using Decimal variables — print the result. Is it exactly `0.3`?
+   - Write a comment explaining why Decimal gives the correct answer and Double does not.
+   - Write a comment on which type you would use for calculating an invoice total.
+
+5. **Null behavior:**
+   - Declare an Integer without assigning a value — print it. What shows up?
+   - Declare a String without assigning a value — print it. What shows up?
+   - Declare a Boolean without assigning a value — print it. What shows up?
+   - Write a comment: in Apex, what is the default value of an uninitialized variable?
 
 **Hints:**
-- Use `.split(';')` to break into pairs, then `.split('=')` for key-value
-- Wrap type conversions in try-catch to handle invalid values gracefully
-- Think about what happens with `key=` (empty value) vs `key` (no equals sign)
-- Store parsed data in a `Map<String, String>` internally
+- Cast with parentheses: `Integer i = (Integer)someDecimal;`
+- Uninitialized variables in Apex default to `null` — not 0, not false, not empty string
+- `0.1 + 0.2` as Double will NOT equal `0.3` exactly — this is a famous floating-point issue
 
 ---
 
 ## Validation Criteria
 
-When you submit your code, I will check:
+When you submit your scripts, I will check:
 
 | Criteria | What I Look For |
 |----------|----------------|
-| Correctness | Does the code compile and produce correct results? |
-| Naming | PascalCase class names, camelCase methods and variables |
-| Null safety | Are null inputs handled without NullPointerException? |
-| Type usage | Are the right data types used (Decimal for money, Id for IDs)? |
-| Constants | Are magic values avoided and constants used where appropriate? |
-| Test coverage | Does the test class cover positive, negative, and edge cases? |
-| Assertions | Is the `Assert` class used (not `System.assert`)? |
-| Meta.xml | Does the meta.xml exist with API 66.0 and no description? |
-| Code structure | Are methods focused and under 30 lines? |
+| Correctness | Does the script run without errors and produce correct debug output? |
+| Completeness | Are all requirements covered? |
+| Variable naming | Are variables named descriptively using camelCase? |
+| Type choices | Are the right data types used for each scenario? |
+| Constants | Is `final` used where values should not change? |
+| Comments | Do comments explain YOUR understanding, not just narrate the code? |
+| Null awareness | Did you handle and understand null behavior? |
+| Debug output | Are debug statements labeled clearly so output is readable? |
 
 ---
 
@@ -318,23 +372,3 @@ Decimal tax = price * 0.10;                  // Now math works — 9.999
 
 This pattern exists across all Apex types: `Integer.valueOf()`, `Boolean.valueOf()`, `Date.valueOf()`, `Long.valueOf()`. If the String is invalid (e.g., `'hello'`), it throws an error — you'll learn how to handle that in Lesson 09 (Exception Handling).
 
-### What is a Map? (Quick intro for Lesson 01 tasks)
-
-A Map is a container that stores pairs — a label (called **key**) and a value. Think of it like a dictionary: you look up a word (key), you get its definition (value).
-
-```apex
-// Create an empty Map — types in <> define what the key and value types are
-Map<String, String> myMap = new Map<String, String>();
-
-// Put pairs in
-myMap.put('Integer', '150');
-myMap.put('Boolean', 'true');
-
-// Get a value by its key
-String result = myMap.get('Integer');  // Returns '150'
-
-// Check how many pairs exist
-Integer size = myMap.size();  // Returns 2
-```
-
-`Map<String, String>` means both the key and value are Strings. `Map<String, Object>` means the key is a String but the value can be any type. Maps are covered in full depth in Lesson 02 — this is just enough to complete the Beginner task.
