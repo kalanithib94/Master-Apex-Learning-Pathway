@@ -42,6 +42,9 @@ $RECYCLE.BIN/
 # Local environment variables
 .env
 
+# Private interview prep — not pushed to public repo
+interview-prep/
+
 # Python Salesforce Functions
 **/__pycache__/
 **/.venv/
