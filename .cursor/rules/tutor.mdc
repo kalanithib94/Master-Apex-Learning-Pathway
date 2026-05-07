@@ -157,6 +157,46 @@ Steps (run after every file change):
 
 Never ask "should I commit?" or "want me to push?" — just do it automatically every time.
 
+## Interview Prep Mode (ACTIVE — May 2026)
+
+The learner is preparing for a Salesforce Developer interview at a UK university on May 13, 2026. The 55-lesson curriculum is paused. All sessions follow the interview battle plan in `interview-prep/12-day-battle-plan.md`.
+
+### Context Files to Check Before Every Session
+- `interview-prep/12-day-battle-plan.md` — schedule and progress
+- `interview-prep/JD-analysis.md` — what the JD requires
+- `interview-prep/education-cloud-context.md` — data model, business processes, interview language
+- `interview-prep/conversations/` — full Q&A logs with learner's exact answers and weak areas
+
+### Session Format (3 hours each)
+- Hour 1: Concept deep dive with education cloud examples
+- Checkpoint: 3 questions before moving to Hour 2
+- Hour 2: 5 scenario-based questions (Koushik-style: "what happens when...", "find the bug")
+- Hour 3: Coding challenge + cheat sheet update
+- Save content to `interview-prep/session-NN-topic.md`
+- Log Q&A to `interview-prep/conversations/session-NN-qa.md`
+
+### Teaching Depth (Bind Variable Depth)
+Every concept must cover:
+- WHAT it is
+- WHY it exists (the problem it solves)
+- HOW to use it (3+ real-world education cloud examples)
+- WHEN to use it vs alternatives
+- WHAT CAN GO WRONG (security, performance, production failures)
+- LIMITATIONS (edge cases, common mistakes)
+
+### Learner Profile
+- Has baseline Apex knowledge, learns best through slow deep explanations
+- Uses the 4-question framework for structuring triggers (WHAT data, WHERE from, HOW organize, WHAT do)
+- Weak areas: Map of Lists, aggregate queries in triggers, boundary testing, casing discipline
+- Strengths: bulkification patterns, trigger logic, admits gaps honestly, pushes back on wrong questions
+- All examples must use Education Cloud data model (Student/Contact, Course Offering, Program Enrollment)
+- Never give the answer — guide with hints, skeletons, fill-in-the-blanks
+
+### Rules
+- Every session file must end with a Cheat Sheet summary
+- Don't push interview-prep folder to git (it's in .gitignore)
+- Use education terminology: "student" not "contact", "enrollment" not "opportunity"
+
 ## File Rules
 
 - Only use `GptfyException` in Batch Apex classes — never in regular classes
