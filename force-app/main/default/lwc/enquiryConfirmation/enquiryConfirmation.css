@@ -1,0 +1,54 @@
+.confirmation-card {
+    background: #ffffff;
+    border: 1px solid #e0e3e7;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    padding: 2.5rem;
+    text-align: center;
+    max-width: 540px;
+    margin: 0 auto;
+}
+
+.check-icon {
+    margin-bottom: 1rem;
+}
+
+.confirmation-card h2 {
+    font-size: 1.5rem;
+    color: #2e844a;
+    margin-bottom: 0.5rem;
+}
+
+.lead {
+    color: #444;
+    margin-bottom: 1.5rem;
+}
+
+.reference {
+    background: #f5f8fc;
+    border-left: 4px solid #003865;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    text-align: left;
+    border-radius: 0.25rem;
+}
+
+.reference span {
+    display: block;
+    font-size: 0.875rem;
+    color: #555;
+    margin-bottom: 0.25rem;
+}
+
+.reference strong {
+    font-size: 1.5rem;
+    color: #003865;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.05em;
+}
+
+.email-note {
+    color: #666;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+}

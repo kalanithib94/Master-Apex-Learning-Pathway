@@ -1,0 +1,25 @@
+<template>
+    <div class="confirmation-card">
+        <div class="check-icon">
+            <lightning-icon icon-name="utility:success" alternative-text="Submitted" size="medium" variant="success"></lightning-icon>
+        </div>
+        <h2>We received your enquiry</h2>
+        <p class="lead">Thank you. A member of our admissions team will respond within 5 working days.</p>
+
+        <div class="reference">
+            <span>Your reference number</span>
+            <strong>{enquiryNumber}</strong>
+        </div>
+
+        <p class="email-note">
+            We've also sent a copy of this confirmation to the email address you provided. Please quote your
+            reference number in any future correspondence.
+        </p>
+
+        <lightning-button
+            variant="neutral"
+            label="Submit another enquiry"
+            onclick={handleReset}>
+        </lightning-button>
+    </div>
+</template>

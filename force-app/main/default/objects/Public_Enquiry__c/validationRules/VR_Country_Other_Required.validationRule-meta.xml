@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_Country_Other_Required</fullName>
+    <active>true</active>
+    <description>If Country is Other, the user must specify which country.</description>
+    <errorConditionFormula>AND(
+  TEXT(Country__c) = &apos;Other&apos;,
+  ISBLANK(Country_Other__c)
+)</errorConditionFormula>
+    <errorDisplayField>Country_Other__c</errorDisplayField>
+    <errorMessage>Please specify your country in the Country (Other) field.</errorMessage>
+</ValidationRule>

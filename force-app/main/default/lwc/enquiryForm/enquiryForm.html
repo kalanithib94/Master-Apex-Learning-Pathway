@@ -1,0 +1,121 @@
+<template>
+    <div class="enquiry-shell">
+        <template lwc:if={isSubmitted}>
+            <c-enquiry-confirmation
+                enquiry-number={enquiryNumber}
+                onreset={handleReset}>
+            </c-enquiry-confirmation>
+        </template>
+
+        <template lwc:else>
+            <div class="enquiry-card">
+                <h1>Public Enquiry</h1>
+                <p class="lead">Tell us about your interest. We'll be in touch within 5 working days.</p>
+
+                <template lwc:if={errorMessage}>
+                    <div class="alert alert-error" role="alert">
+                        <strong>We couldn't submit your enquiry.</strong>
+                        <span>{errorMessage}</span>
+                    </div>
+                </template>
+
+                <div class="form-grid">
+                    <lightning-input
+                        type="text"
+                        label="Full name"
+                        name="enquirerName"
+                        value={form.enquirerName}
+                        onchange={handleChange}
+                        required>
+                    </lightning-input>
+
+                    <lightning-input
+                        type="email"
+                        label="Email address"
+                        name="enquirerEmail"
+                        value={form.enquirerEmail}
+                        onchange={handleChange}
+                        required>
+                    </lightning-input>
+
+                    <lightning-input
+                        type="tel"
+                        label="Phone (optional)"
+                        name="enquirerPhone"
+                        value={form.enquirerPhone}
+                        onchange={handleChange}>
+                    </lightning-input>
+
+                    <lightning-combobox
+                        label="Country of residence"
+                        name="country"
+                        value={form.country}
+                        options={countryOptions}
+                        placeholder="Select country"
+                        onchange={handleChange}
+                        required>
+                    </lightning-combobox>
+
+                    <template lwc:if={isCountryOther}>
+                        <lightning-input
+                            type="text"
+                            label="Country (please specify)"
+                            name="countryOther"
+                            value={form.countryOther}
+                            onchange={handleChange}
+                            required>
+                        </lightning-input>
+                    </template>
+
+                    <lightning-combobox
+                        label="Programme level"
+                        name="programmeLevel"
+                        value={form.programmeLevel}
+                        options={levelOptions}
+                        placeholder="Select level"
+                        onchange={handleChange}
+                        required>
+                    </lightning-combobox>
+
+                    <lightning-combobox
+                        label="Programme of interest"
+                        name="programmeOfInterest"
+                        value={form.programmeOfInterest}
+                        options={programmeOptions}
+                        placeholder="Select a school"
+                        onchange={handleChange}>
+                    </lightning-combobox>
+                </div>
+
+                <div class="consent-block">
+                    <lightning-input
+                        type="checkbox"
+                        label="I consent to my personal data above being processed in order to respond to my enquiry. I can withdraw consent at any time by contacting the Data Protection Officer."
+                        name="consentGiven"
+                        checked={form.consentGiven}
+                        onchange={handleChange}
+                        required>
+                    </lightning-input>
+                </div>
+
+                <div class="actions">
+                    <lightning-button
+                        variant="brand"
+                        label="Submit enquiry"
+                        title="Submit enquiry"
+                        onclick={handleSubmit}
+                        disabled={isSubmitting}>
+                    </lightning-button>
+                    <template lwc:if={isSubmitting}>
+                        <lightning-spinner alternative-text="Submitting" size="small"></lightning-spinner>
+                    </template>
+                </div>
+
+                <p class="small-print">
+                    Your data is processed under your consent. Reference number is generated automatically on submission.
+                    Retention 24 months from last contact unless you ask us to delete sooner.
+                </p>
+            </div>
+        </template>
+    </div>
+</template>
